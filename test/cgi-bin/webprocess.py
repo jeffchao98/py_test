@@ -66,4 +66,8 @@ def get_from_store():
         print('File error(get_from_store): '+str(ioerr))
 
     return (all_referenses)
+def get_name_from_store():
+    m_item = get_from_store()
+    list_trsult = [m_item[each_item].name for each_item in m_item]
+    return(list_trsult)
     

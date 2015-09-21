@@ -7,7 +7,7 @@ References:
 3.Head First Python, O'RELLY
 4."Head First Labs" - http://www.headfirstlabs.com/
 """
-
+'''
 #Simple output
 print 3+5
 print 100-50
@@ -67,7 +67,7 @@ del d['game']
 print d
 #Print non-menber
 #print d['never_seen']
-
+'''
 
 # if - else procedure
 #x = input('Please enter a integer: ')
