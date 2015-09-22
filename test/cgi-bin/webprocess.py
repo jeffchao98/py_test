@@ -1,8 +1,11 @@
 import pickle
 #test
 from customobj import customobj_inh
+import urllib
 from http.server import HTTPServer, CGIHTTPRequestHandler
 import yate
+
+
 
 
 def do_web_process():
@@ -13,7 +16,8 @@ def do_web_process():
     print(yate.include_header("Test title for my web application in python test"))
     print(yate.include_footer({'Home':'/index.html', 'Select':'/cgi-bin/select.py'}))
     print(yate.start_form("/cgi-bin/process-athlete.py"))
-    
+    #print(urllib.request.urlopen('http://192.168.0.1/test.py', urllib.parse.urlencode({'a':'c'})))
+    print(urllib.parse.urlencode({'a':'c'}))
     
     the_files = ['sarah2.txt', 'james2.txt', 'mikey2.txt']
     data = put_to_store(the_files)
