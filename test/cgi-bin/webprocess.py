@@ -5,7 +5,7 @@ import urllib
 from http.server import HTTPServer, CGIHTTPRequestHandler
 import yate
 
-
+import sqlite3
 
 
 def do_web_process():

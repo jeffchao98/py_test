@@ -67,6 +67,9 @@ class customobj_inh(list):
         pass
     def top3(self):
         return(sorted(set(sanitize(t) for t in self))[0:3])
+    @property
+    def clean_data(self):
+        return(sorted(set(sanitize(t) for t in self)))
     def as_dict(self):
         return({'Name':self.name, 'DOB':self.dob, 'Top3':self.top3()})
     #Since the json method cannot handle custom items, we need transfer it as dict type 
