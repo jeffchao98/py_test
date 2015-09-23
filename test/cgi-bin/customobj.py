@@ -8,10 +8,10 @@ def do_customobj():
     
     
     #dictionary way
-    d_james = process_files('james2.txt')
-    d_julie = process_files('julie2.txt')
-    d_mikey = process_files('mikey2.txt')
-    d_sarah = process_files('sarah2.txt')
+    d_james = process_files('testdata/james2.txt')
+    d_julie = process_files('testdata/julie2.txt')
+    d_mikey = process_files('testdata/mikey2.txt')
+    d_sarah = process_files('testdata/sarah2.txt')
     
     '''
     d_james = list_to_dic(l_james)
@@ -23,7 +23,7 @@ def do_customobj():
     
     
     #custom object way (inherit)
-    o_james = process_files_obj('james2.txt')
+    o_james = process_files_obj('testdata/james2.txt')
     print(o_james.name+"'s fastest times are: "+str(o_james[0:3]))
     
     

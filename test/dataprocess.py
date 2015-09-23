@@ -4,10 +4,11 @@ Created on 2015/9/9
 @author: SCaine
 '''
 def do_data_process():
-    d_james = process_files('james.txt')
-    d_julie = process_files('julie.txt')
-    d_mikey = process_files('mikey.txt')
-    d_sarah = process_files('sarah.txt')
+    print('//==================do_data_process(Value Only)')
+    d_james = process_files('testdata/james_o.txt')
+    d_julie = process_files('testdata/julie_o.txt')
+    d_mikey = process_files('testdata/mikey_o.txt')
+    d_sarah = process_files('testdata/sarah_o.txt')
     
     d_james_s = []
     d_julie_s = []

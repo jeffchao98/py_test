@@ -20,7 +20,7 @@ def do_web_process():
     #print(urllib.request.urlopen('http://192.168.0.1/test.py', urllib.parse.urlencode({'a':'c'})))
     print(urllib.parse.urlencode({'a':'c'}))
     
-    the_files = ['sarah2.txt', 'james2.txt', 'mikey2.txt']
+    the_files = ['testdata/sarah2.txt', 'testdata/james2.txt', 'testdata/mikey2.txt']
     data = put_to_store(the_files)
     for each_data in data:
         print(data[each_data].name+' '+data[each_data].dob)
@@ -55,7 +55,7 @@ def put_to_store(files_list):
         a_file = process_files_obj(each_file)
         all_referenses[a_file.name]=a_file
     try:
-        with open('athletes.pickle', 'wb') as a_file_p:
+        with open('testdata/athletes.pickle', 'wb') as a_file_p:
             pickle.dump(all_referenses, a_file_p)
     except IOError as ioerr:
         print('File error(put_to_store): '+str(ioerr))
@@ -65,7 +65,7 @@ def put_to_store(files_list):
 def get_from_store():
     all_referenses = {}
     try:
-        with open('athletes.pickle', 'rb') as a_file_p:
+        with open('testdata/athletes.pickle', 'rb') as a_file_p:
             all_referenses = pickle.load(a_file_p)
     except IOError as ioerr:
         print('File error(get_from_store): '+str(ioerr))

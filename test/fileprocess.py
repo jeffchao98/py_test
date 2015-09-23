@@ -17,7 +17,7 @@ other = []
 def do_file_process():
     #if os.path.exists('sketch.txt'):#If-else way (with more complexity)
     try:#Try-except way
-        the_file = open('sketch.txt')
+        the_file = open('testdata/sketch.txt')
         print('file opened')
         for each_line in the_file:
             #print(each_line, end="")
@@ -82,7 +82,7 @@ def Storage_file_process(in_role='', in_line=''):
 
 def pickle_data_recover():
     try:
-        with open('man_data.out', "rb") as man_file, open('other_data.out', "rb") as other_file:
+        with open('testdata/man_data.out', "rb") as man_file, open('testdata/other_data.out', "rb") as other_file:
             new_man = pickle.load(man_file)
     except IOError as err:
         print('File established failed : ' + str(err))
@@ -92,9 +92,9 @@ def pickle_data_recover():
 
 def pickle_data_test():
     try:
-        with open('mydata.plckle', 'wb') as mypickledata:
+        with open('testdata/mydata.plckle', 'wb') as mypickledata:
             pickle.dump([1,2,'three'], mypickledata)
-        with open('mydata.plckle', 'rb') as myreaddata:
+        with open('testdata/mydata.plckle', 'rb') as myreaddata:
             p_list = pickle.load(myreaddata)
     
         print(p_list)
@@ -105,7 +105,7 @@ def pickle_data_test():
 def pickle_data_real():
     try:
         #deal with the picker
-        with open('man_data.out', "wb") as man_file, open('other_data.out', "wb") as other_file:
+        with open('testdata/man_data.out', "wb") as man_file, open('testdata/other_data.out', "wb") as other_file:
             pickle.dump(man, man_file)
             pickle.dump(other, other_file)
     except IOError as err:
@@ -117,7 +117,7 @@ def pickle_data_real():
  
 def creat_file_test():
     try:
-        out_file = open("data.out", "w")
+        out_file = open("testdata/data.out", "w")
         '''
         Mode
         w - create, rewrite if duplicate name existed
@@ -133,10 +133,10 @@ def creat_file_test():
 def create_file_real():
     try:
         #'with' includes data open/close/IOError handle of a file
-        with open('man_data.out', "w") as man_file:
+        with open('testdata/man_data.out', "w") as man_file:
             #print(man, file=man_file)
             nester.print_list(man, man_file)#due to format
-        with open('other_data.out', "w") as other_file:
+        with open('testdata/other_data.out', "w") as other_file:
             nester.print_list(other,False,0, other_file)
     except IOError as err:
         print('File established failed : ' + str(err))
