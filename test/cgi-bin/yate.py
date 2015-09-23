@@ -65,3 +65,13 @@ def do_form(name, the_inputs, method="POST", text="Submit"):
     form=Template(form_text)
     
     return(form.substitute(cgi_name=name, http_method=method, list_of_inputs=inputs, submit_text=text))
+def do_form_with_hide(name, the_inputs,the_inputs_hide, method="POST", text="Submit"):
+    with open('templates/form.html') as formf:
+        form_text = formf.read()
+    inputs=create_inputs(the_inputs)
+    for hide_key in the_inputs_hide.keys():
+        inputs = inputs+'<input type="hidden" name="'+\
+        hide_key+'" value="'+the_inputs_hide[hide_key]+'">'
+    form=Template(form_text)
+    
+    return(form.substitute(cgi_name=name, http_method=method, list_of_inputs=inputs, submit_text=text))

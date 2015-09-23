@@ -27,4 +27,7 @@ print(yate.para("The top 3 records: "))
 print(yate.u_list(m_focus_item['top3']))
 #Show all data(without duplicate item)
 print(yate.para("The entire set of timing data is: " + str(m_focus_item['data']) +" (duplicates removed)."))
+
+print(yate.do_form_with_hide('add_timing_data.py', ['Time'], {'Athlete':id_focus_item} ,text='Submit'))
+
 print(yate.include_footer({"Home":"/index.html", "select another item":"generate_web_list.py"}))
