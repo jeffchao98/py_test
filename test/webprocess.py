@@ -7,6 +7,7 @@ import yate
 
 import sqlite3
 
+db_name = 'cgi-bin/coachdata.sqlite'
 
 def do_web_process():
     #test functions for yate.py
@@ -70,8 +71,37 @@ def get_from_store():
         print('File error(get_from_store): '+str(ioerr))
 
     return (all_referenses)
+
+def get_namesID_from_store():
+    connection = sqlite3.connect(db_name)
+    cursor = connection.cursor()
+    results = cursor.execute("""SELECT name, id FROM athletes""")
+    response = results.fetchall()
+    connection.close()
+    return(response)
+def get_athlete_from_id(athlete_id):
+    connection = sqlite3.connect(db_name)
+    cursor = connection.cursor()
+    results = cursor.execute("""SELECT name, dob FROM athletes WHERE id=?""",(athlete_id,))
+    (name, dob) = results.fetchone()
+    results = cursor.execute("""SELECT value FROM timing_data WHERE athlete_id=?""",(athlete_id,))
+    data = [row[0] for row in results.fetchall()]
+    response = {'Name':   name,
+                'DOB':    dob,
+                'data':   data,
+                'top3':   data[0:3]}
+    connection.close()
+    return(response)
 def get_name_from_store():
+    connection = sqlite3.connect(db_name)
+    cursor = connection.cursor()
+    results = cursor.execute("""SELECT name FROM athletes""")
+    response = [row[0] for row in results.fetchall()]
+    connection.close()
+    return(response)
+'''
     m_item = get_from_store()
     list_trsult = [m_item[each_item].name for each_item in m_item]
     return(list_trsult)
+'''
     
