@@ -9,7 +9,7 @@ import sqlite3
 
 
 def do_web_process():
-    #test functions of yate.py
+    #test functions for yate.py
     print(yate.start_response())
     print(yate.start_response("text/plain"))
     print(yate.start_response("application/json"))
